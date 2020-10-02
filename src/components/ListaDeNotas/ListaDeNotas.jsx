@@ -3,9 +3,11 @@ import CardNota from "../CardNota";
 import "./estilo.css";
 class ListaDeNotas extends Component {
 
-  constructor(){
-    super()
-    this.state = {notas: []}
+  constructor(props){
+    super(props)
+    this.state = {
+      notas: [],
+    }
     this._novasNotas = this._novasNotas.bind(this)
   }
 
@@ -18,13 +20,22 @@ class ListaDeNotas extends Component {
   }
 
   _novasNotas(notas){
-    this.setState({notas})
+    this.setState({...this.state, notas})
   }
+
+  _filtro(dados){
+    if(this.props.filtroCategoria === "Remover Filtro")
+      return dados
+    const novosDados = dados.filter((dado) => dado.categoria === this.props.filtroCategoria)
+    return novosDados
+  }
+  
 
   render() {
     return (
       <ul className="lista-notas">
-        {this.state.notas.map((nota, index) => {
+
+        {this._filtro(this.state.notas).map((nota, index) => {
           return (
             <li className="lista-notas_item" key={index}>
               <CardNota 

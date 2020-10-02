@@ -42,7 +42,7 @@ _novasCategorias(categorias){
   _criarNota(event){
     event.preventDefault()
     event.stopPropagation()
-    this.props.criarNota(this.titulo, this.texto, this.categoria)
+    this.props.criarNota(this.categoria, this.titulo, this.texto)
 
   }
 

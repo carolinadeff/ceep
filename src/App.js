@@ -13,6 +13,8 @@ class App extends Component {
 
     this.categorias = new Categorias();
     this.notas = new ArrayDeNotas();
+    this.state = {filtroCategoria: "Remover Filtro"}
+
 
     // this.state = {
     //   notas: [],
@@ -40,6 +42,12 @@ class App extends Component {
   //   this.setState({...this.state, categorias: novoArrayCategorias})
   // }
 
+  selecionaCategoria(e){
+    if(e.target.tagName === "LI") {
+      this.setState({...this.state, filtroCategoria: e.target.textContent})
+    }
+  }
+
   render() {
     return (
       <section className="conteudo">
@@ -50,9 +58,11 @@ class App extends Component {
         <main className="conteudo-principal">
           <ListaDeCategorias
             categorias={this.categorias}
+            selecionaCategoria={this.selecionaCategoria.bind(this)}
           />
           <ListaDeNotas
             notas={this.notas}
+            filtroCategoria={this.state.filtroCategoria}
           />
         </main>
       </section>

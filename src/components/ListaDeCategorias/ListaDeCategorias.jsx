@@ -32,7 +32,8 @@ class ListaDeCategorias extends Component {
         
         return ( 
             <section className="lista-categorias">
-            <ul className="lista-categorias_lista">
+            <ul onClick={this.props.selecionaCategoria} className="lista-categorias_lista">
+                <li className="lista-categorias_item">Remover Filtro</li>
                 {this.state.categorias.map((categoria, index) => {
                     return <li className="lista-categorias_item" key={index}>{categoria}</li>
                 })}
