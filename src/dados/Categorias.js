@@ -1,7 +1,17 @@
+import { lista, adiciona, exclui } from '../api/categorias'
+
 export default class Categorias{
     constructor(){
         this.categorias = [];
         this._inscritos = [];
+        this._init()
+    }
+
+    _init(){
+        lista().then(categorias => categorias.forEach(categoria => {
+            this.categorias.push(categoria)
+            this.notificar()
+        }))
     }
 
     inscrever(func){
@@ -17,8 +27,17 @@ export default class Categorias{
     }
 
     adicionarCategoria(novaCategoria){
-        this.categorias.push(novaCategoria)
-        this.notificar()
+        adiciona(novaCategoria).then(() => {
+            this.categorias.push(novaCategoria)
+            this.notificar()
+        })
+    }
 
+    excluirCategoria(id){
+        console.log(this.categorias)
+        exclui(id).then(() => {
+            this.categorias = this.categorias.filter((item) => item.id !== id)
+            this.notificar()
+        })
     }
 }

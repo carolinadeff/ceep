@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './estilo.css'
+import iconeFechar from '../../assets/img/fechar.png'
 
 class ListaDeCategorias extends Component {
 
@@ -10,6 +11,7 @@ class ListaDeCategorias extends Component {
     }
 
     componentDidMount(){
+
         this.props.categorias.inscrever(this._novasCategorias)
     }
 
@@ -27,15 +29,25 @@ class ListaDeCategorias extends Component {
             this.props.categorias.adicionarCategoria(valorCategoria);
         }
     }
+
+    _handleEventosCategorias(event){
+        const categoria = event.target.textContent
+        const id = event.target.id
+        if(event.target.tagName === "IMG") {
+            this.props.categorias.excluirCategoria(id)
+        } else if(event.target.tagName === "LI") {
+            this.props.selecionaCategoria(categoria)
+        }
+    }
    
     render() { 
         
         return ( 
             <section className="lista-categorias">
-            <ul onClick={this.props.selecionaCategoria} className="lista-categorias_lista">
+            <ul onClick={this._handleEventosCategorias.bind(this)} className="lista-categorias_lista">
                 <li className="lista-categorias_item">Remover Filtro</li>
                 {this.state.categorias.map((categoria, index) => {
-                    return <li className="lista-categorias_item" key={index}>{categoria}</li>
+                    return <div key={index} className="lista-categorias_item"><li className="lista-categorias_item" value={categoria.id}>{categoria.categoria}</li><img id={categoria.id} src={iconeFechar} alt="fechar"/></div>
                 })}
                 
             </ul>

@@ -54,7 +54,7 @@ _novasCategorias(categorias){
         <select className="form-cadastro_input" onChange={this._handleMudancaCategoria.bind(this)}>
           <option value="">Sem Categoria</option>
           {this.state.categorias.map((categoria,index) => {
-            return <option key={index}>{categoria}</option>
+            return <option key={index}>{categoria.categoria}</option>
           })}
         </select>
         <input

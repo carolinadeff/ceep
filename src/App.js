@@ -42,10 +42,8 @@ class App extends Component {
   //   this.setState({...this.state, categorias: novoArrayCategorias})
   // }
 
-  selecionaCategoria(e){
-    if(e.target.tagName === "LI") {
-      this.setState({...this.state, filtroCategoria: e.target.textContent})
-    }
+  selecionaCategoria(categoria){
+      this.setState({...this.state, filtroCategoria: categoria})
   }
 
   render() {

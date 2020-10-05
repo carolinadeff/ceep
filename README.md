@@ -3,7 +3,9 @@ Aplicação criada no curso de React - ciclo de vida dos componentes - da Alura,
 A aplicação é um mural de notas composta por três componentes, um de criação e visualização de categorias, um com formulário de criação das notas, e o mural de notas.
 Durante o curso usamos modelos para armazenar e consumir os dados de categorias e notas, pois não criamos um back-end para aplicação (diretório src/dados)
 Utilizamos nesse curso a abordagem de classes para criar componentes e padrão Observer para atualizar a visualização dos componentes quando é criada uma nova categoria ou uma nova nota pelo usuário.
-Após a conclusão do curso implementei um filtro na visualização das notas, por categoria. Experimentei nesse caso utilizar os dados em memória, sem acessar a fonte de dados (dos modelos ou de uma possível api). a Categoria selecionada no componente de exibição de categorias é ouvida pelo componente pai que tem seu estado atualizado, passa a informação ao componente filho de exibição de notas atraves das props, que então filtra o array gerador de notas. 
+
+Acrescentei:
+Após a conclusão do curso implementei um filtro na visualização das notas, por categoria. Experimentei nesse caso utilizar os dados em memória, sem acessar a fonte de dados (dos modelos ou de uma possível api). a Categoria selecionada no componente de exibição de categorias é ouvida pelo componente pai que tem seu estado atualizado, passa a informação ao componente filho de exibição de notas atraves das props, que então filtra o array gerador de notas.
 
 
 
